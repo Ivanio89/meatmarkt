@@ -1,0 +1,522 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+/********************************
+*           Container           *
+* задается в тех блоках где это *
+*   нужно отцентрировать блок   *
+********************************/
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/*******************************
+*            Header            *
+* шапка сайта, лого, навигация *
+*******************************/
+
+header {
+  position: relative;
+}
+
+.header-wrap {
+  min-width: 100%;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+
+  .header-wrap__bg img {
+    min-width: 100%;
+    position: absolute;
+    max-height: 100vh;
+    z-index: -5;
+  }
+
+  .header-wrap__bg_effect {
+    position: absolute;
+    max-height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $bg-color__main;
+    z-index: -5;
+    opacity: 0.5;
+  }
+
+  .header-logo img {
+    padding: 40px 150px;
+    max-width: 230px;
+    max-height: 150px;
+  }
+
+  .header-logo {
+    margin-bottom: 120px;
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+/*****************************
+*            Nav             *
+*    Бональная навигация     *
+*****************************/
+
+.nav {
+  position: relative;
+
+  &-flex {
+    position: absolute;
+    left: 80%;
+    line-height: 80%;
+    white-space: nowrap;
+    z-index: 12;
+    transform: translateX(-80%);
+  }
+
+  &-flex__item {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &-flex__item li {
+    @include transition-hover;
+    margin: 20px 10px;
+    list-style-type: none;
+  }
+
+  & li:hover {
+    background-color: $bg-color__main;
+    border-radius: 16px;
+    cursor: pointer;
+  }
+
+  &-flex__item a {
+    @include nav-family;
+    text-decoration: none;
+    color: $color-title__white;
+    outline: none;
+    display: block;
+    padding: 15px;
+  }
+}
+
+/*******************************
+*         Header-menu          *
+*  контентное меню с сылками   *
+*на меню, контакты, ассортимент*
+*******************************/
+
+.header-wrap__lists {
+  display: flex;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-bottom: 100px;
+
+  .header-wrap__list_item {
+    min-width: 250px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .header-wrap__list_item:nth-child(2) {
+    padding: 0 20px;
+    border-left: 2px solid $color-title__white;
+    border-right: 2px solid $color-title__white;
+  }
+
+  .header-wrap__list_icon {
+    @include menu-icon;
+    color: $color-title__white;
+  }
+
+  .header-wrap__list_txt h3,
+  .header-wrap__list_txt h3 a {
+    @include subtitle-family;
+    text-transform: uppercase;
+    word-break: break-all;
+    color: $color-title__white;
+    text-decoration: none;
+  }
+
+  .fa-clipboard-list:hover,
+  .fa-concierge-bell:hover,
+  .fa-id-badge:hover,
+  .header-wrap__list_txt h3:hover,
+  .header-wrap__list_txt h3 a:hover {
+    @include transition-hover;
+    color: $bg-color__main;
+    cursor: pointer;
+  }
+}
+
+/******************************
+*         button-range        *
+*Кнопка ведущая на ассортимент*
+*******************************/
+
+.header-btn {
+  text-align: center;
+
+  & button {
+    @include button-renge__family;
+    @include transition-hover;
+    padding: 20px 30px;
+    color: $color-title__white;
+    border: 6px solid $bg-color__main;
+    background-color: transparent;
+    border-radius: 20px;
+    outline: none;
+  }
+
+  & button:hover {
+    background-color: $color-title__white;
+    border: 5px solid $color-title__white;
+    color: $bg-color__main;
+  }
+}
+
+/*****************************
+*         Content            *
+*         в Header           *
+*****************************/
+
+.content-main__title h1 {
+  @include title-family;
+  margin: 50px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.content-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 40px;
+
+  &__item {
+    max-width: 400px;
+    margin: 40px;
+    text-align: center;
+  }
+
+  &__image img {
+    border-radius: 200px;
+    text-align: center;
+  }
+
+  &__txt-products h3 {
+    @include subtitle-family;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__btn {
+    text-align: center;
+  }
+
+  &__btn button {
+    @include button-family;
+    @include transition-hover;
+  }
+
+  &__btn button:hover {
+    background-color: $bg-color__main;
+    color: $color-title__white;
+    box-shadow: $shadow-main;
+  }
+}
+
+/*****************************
+*            Footer          *
+*        подвал сайта с      *
+*        обратной формой     *
+*****************************/
+
+.footer-block {
+  background-color: $bg-color__main;
+  padding: 20px 0;
+
+  &__title h1 {
+    @include title-family;
+    margin-bottom: 30px;
+    text-align: center;
+    color: $color-title__white;
+  }
+
+  form {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  form > input {
+    @include form-input;
+    width: 100%;
+    margin: 20px 0;
+    color: $color-title__white;
+  }
+  form > textarea {
+    @include form-input;
+    width: 100%;
+    margin: 20px 0;
+    color: $color-title__white;
+    resize: none;
+  }
+  input[type="submit"] {
+    @include button-submit-family;
+    width: 50%;
+    margin: 20px auto;
+    color: $color-title__white;
+  }
+
+  .footer-block {
+    @include author-family;
+    text-align: center;
+    color: $color-title__white;
+  }
+}
+
+/*****************************
+*          products          *
+*      в listProduct.js      *
+*     ассортимент товара     *
+*****************************/
+
+.product-inner__title h1 {
+  @include title-family;
+  text-align: center;
+}
+
+.product-inner {
+  &__item {
+    display: flex;
+    max-width: 900px;
+    padding: 20px;
+    margin: 50px auto;
+    background-color: $bg-block__range;
+    border-radius: 5px;
+    @include transition-hover;
+  }
+
+  &__item:hover {
+    box-shadow: $shadow-main;
+  }
+
+  &__item:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  &__img img {
+    border-radius: 3px;
+  }
+
+  &__flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  &__title h4 {
+    @include subtitle-family;
+    padding: 10px 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  &__text p {
+    @include text-family;
+    padding: 0 30px;
+    margin: 0;
+  }
+
+  &__btn {
+    padding: 0 30px;
+  }
+
+  &__item:nth-child(odd) &__btn {
+    text-align: end;
+  }
+
+  &__btn button {
+    @include button-product;
+    color: $color-title__white;
+  }
+
+  &__btn button:hover {
+    @include transition-hover;
+    background-color: $bg-color__main;
+  }
+}
+
+/******************************
+*          contacts           *
+*    в contacts.js контакты   *
+******************************/
+
+.feedback {
+  position: relative;
+
+  &-heading {
+    @include feedback-family;
+    padding: 10px;
+    background-color: $bg-color__main;
+    color: $color-title__white;
+  }
+
+  &-bl__title h1 {
+    @include title-family;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &-bl__map {
+    margin: 0 auto;
+    width: 800px;
+    height: 500px;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  &-bl__communication {
+    @include text-family;
+    padding: 30px 50px;
+    text-align: center;
+  }
+}
+
+/******************************
+*       list products         *
+******************************/
+
+.list-bl__fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: $bg-block__range;
+  z-index: 20;
+
+  .list-bl__products {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    padding: 5px 30px;
+    background-color: $bg-color__main;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    box-shadow: $shadow-main;
+    overflow: hidden scroll;
+    min-width: 30%;
+    max-height: 300px;
+    border-radius: 3px;
+  }
+
+  .list-price {
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+  }
+
+  .list-price h1 {
+    @include list-price__title;
+    text-align: center;
+    color: $color-title__white;
+  }
+
+  .list-bl__icon_close {
+    @include icon-close;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+  }
+
+  .list-price__item ul {
+    max-width: 300px;
+    margin: 0 0px;
+    padding: 0 20px;
+  }
+
+  .list-price__item li {
+    height: 50px;
+    line-height: 50px;
+    @include transition-hover;
+    list-style-type: none;
+  }
+
+  .list-price__item li {
+    padding: 0 30px;
+    @include list-price;
+    text-decoration: none;
+    color: $color-title__white;
+    text-transform: uppercase;
+  }
+
+  .list-price__item ul li:hover {
+    background-color: $color-title__white;
+  }
+
+  .list-price__item li:hover {
+    color: $bg-color__main;
+    padding: 0 50px;
+  }
+}
+/******************************
+*         commodity           *
+******************************/
+
+.block-commodity__fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $bg-block__range;
+  z-index: 25;
+}
+
+.block-commodity__wrapp {
+  position: relative;
+  max-width: 1000px;
+  height: 50%;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $bg-color__main;
+  color: $color-title__white;
+  z-index: 25;
+  border-radius: 5px;
+  box-shadow: $shadow-main;
+  overflow: auto;
+}
+
+.block-commodity__icon {
+  @include icon-close;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.block-commodity__item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.block-commodity__wrapper {
+  width: 200px;
+}
+
+.block-commodity__subtitle h3 {
+  @include subtitle-family;
+  text-align: center;
+}
+
+.block-commodity__img {
+  text-align: center;
+  width: 100px;
+  height: 100px;
+}

@@ -1,0 +1,132 @@
+@mixin title-family {
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+  cursor: default;
+}
+
+@mixin subtitle-family {
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+  cursor: default;
+}
+
+@mixin menu-icon {
+  font-size: 50px;
+}
+
+@mixin icon-close {
+  font-size: 30px;
+  color: $color-title__white;
+  cursor: pointer;
+}
+
+@mixin list-price {
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@mixin list-price__title {
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: 35px;
+  cursor: default;
+}
+
+@mixin text-family {
+  font-family: "Nunito", sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  cursor: default;
+}
+
+@mixin feedback-family {
+  font-family: "Nunito", sans-serif;
+  font-weight: normal;
+  font-size: 20px;
+  cursor: default;
+}
+
+@mixin author-family {
+  font-family: "Nunito", sans-serif;
+  font-weight: 100;
+  font-size: 13px;
+  text-transform: uppercase;
+  cursor: default;
+}
+
+@mixin button-renge__family {
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+  text-transform: uppercase;
+  box-shadow: $shadow-main;
+  outline: none;
+  cursor: pointer;
+}
+
+@mixin nav-family {
+  font-family: "Nunito", sans-serif;
+  font-weight: 1000;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+@mixin button-family {
+  padding: 15px 30px;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 5px solid $bg-color__main;
+  border-radius: 15px;
+  outline: none;
+  cursor: pointer;
+}
+
+@mixin button-product {
+  display: inline;
+  padding: 15px 30px;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: 19px;
+  text-transform: uppercase;
+  background-color: $color-title__black;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+}
+
+@mixin button-submit-family {
+  padding: 15px 30px;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 4px solid $btn-border__form__submit;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+@mixin form-input {
+  padding: 15px 30px;
+  box-sizing: border-box;
+  padding: 20px;
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 4px solid $border-form__input;
+  border-radius: 15px;
+  outline: none;
+}
+
+@mixin transition-hover {
+  transition: ease 0.6s;
+}
