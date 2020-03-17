@@ -1,12 +1,12 @@
 @import "./mixins.scss";
 @import "./variables.scss";
+@import "./@media.scss";
 
 /********************************
 *           Container           *
 * задается в тех блоках где это *
 *   нужно отцентрировать блок   *
 ********************************/
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -24,14 +24,20 @@ header {
 .header-wrap {
   min-width: 100%;
   position: relative;
-  min-height: 100vh;
+  max-height: 100vh;
   overflow: hidden;
+  @media (max-width: $breakpoint-md-max) {
+    background-color: $bg-color__main;
+  }
 
   .header-wrap__bg img {
     min-width: 100%;
     position: absolute;
     max-height: 100vh;
     z-index: -5;
+    @media (max-width: $breakpoint-md-max) {
+      display: none;
+    }
   }
 
   .header-wrap__bg_effect {
@@ -44,23 +50,33 @@ header {
     background-color: $bg-color__main;
     z-index: -5;
     opacity: 0.5;
+    @media (max-width: $breakpoint-md-max) {
+      opacity: 1;
+    }
   }
 
   .header-logo img {
     padding: 40px 150px;
     max-width: 230px;
     max-height: 150px;
+    @media (max-width: $breakpoint-md-max) {
+      padding: 40px;
+    }
   }
 
   .header-logo {
     margin-bottom: 120px;
     display: flex;
-    justify-content: flex-start;
+    @media (max-width: $breakpoint-md-max) {
+      margin-bottom: 0;
+      display: block;
+      text-align: center;
+    }
   }
 }
 
 /*****************************
-*            Nav             *
+*           Nav              *
 *    Бональная навигация     *
 *****************************/
 
@@ -74,6 +90,9 @@ header {
     white-space: nowrap;
     z-index: 12;
     transform: translateX(-80%);
+    @media (max-width: $breakpoint-md-max) {
+      display: none;
+    }
   }
 
   &-flex__item {
@@ -111,25 +130,60 @@ header {
 
 .header-wrap__lists {
   display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  @media (max-width: $breakpoint-md-max) {
+    display: block;
+    justify-content: center;
+  }
+}
+
+.header-wrap__lists {
   max-width: 900px;
   margin: 0 auto;
   margin-bottom: 100px;
 
+  @media (max-width: $breakpoint-md-max) {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
   .header-wrap__list_item {
     min-width: 250px;
-    margin: 0 auto;
+    margin: 35px 20px;
     text-align: center;
+    @media (max-width: $breakpoint-md-max) {
+      min-width: 250px;
+      border: 3px solid $color-title__white;
+      margin: 20px 20px;
+      padding: 20px;
+      border-radius: 25px;
+      box-shadow: $shadow-main;
+    }
   }
 
   .header-wrap__list_item:nth-child(2) {
-    padding: 0 20px;
+    padding: 0 auto;
     border-left: 2px solid $color-title__white;
     border-right: 2px solid $color-title__white;
+  }
+
+  @media (max-width: $breakpoint-md-max) {
+    .header-wrap__list_item:nth-child(2) {
+      border: none;
+      border: 3px solid $color-title__white;
+      margin: 20px 20px;
+      padding: 20px;
+    }
   }
 
   .header-wrap__list_icon {
     @include menu-icon;
     color: $color-title__white;
+    @media (max-width: $breakpoint-md-max) {
+      display: block;
+    }
   }
 
   .header-wrap__list_txt h3,
@@ -149,6 +203,9 @@ header {
     @include transition-hover;
     color: $bg-color__main;
     cursor: pointer;
+    @media (max-width: $breakpoint-md-max) {
+      color: $color-title__white;
+    }
   }
 }
 
@@ -169,12 +226,16 @@ header {
     background-color: transparent;
     border-radius: 20px;
     outline: none;
+    margin-bottom: 100px;
   }
 
   & button:hover {
     background-color: $color-title__white;
     border: 5px solid $color-title__white;
     color: $bg-color__main;
+  }
+  @media (max-width: $breakpoint-md-max) {
+    display: none;
   }
 }
 
@@ -193,7 +254,7 @@ header {
 .content-box {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 40px;
 
   &__item {
@@ -244,12 +305,15 @@ header {
     margin-bottom: 30px;
     text-align: center;
     color: $color-title__white;
+    padding: 0 20px;
   }
 
   form {
+    padding: 20px;
     max-width: 700px;
     margin: 0 auto;
     text-align: center;
+    color: $color-title__white;
   }
   form > input {
     @include form-input;
@@ -266,9 +330,15 @@ header {
   }
   input[type="submit"] {
     @include button-submit-family;
-    width: 50%;
+    max-width: 50%;
     margin: 20px auto;
     color: $color-title__white;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    input[type="submit"] {
+      min-width: 100%;
+    }
   }
 
   .footer-block {
@@ -290,14 +360,20 @@ header {
 }
 
 .product-inner {
+  padding: 0 20px;
   &__item {
+    @include transition-hover;
     display: flex;
     max-width: 900px;
     padding: 20px;
     margin: 50px auto;
     background-color: $bg-block__range;
     border-radius: 5px;
-    @include transition-hover;
+
+    @media (max-width: $breakpoint-sm-max) {
+      text-align: center;
+      display: block;
+    }
   }
 
   &__item:hover {
@@ -308,7 +384,13 @@ header {
     flex-direction: row-reverse;
   }
 
+  &__title h1 {
+    max-width: 100%;
+  }
+
   &__img img {
+    max-width: 100%;
+    margin-top: 10px;
     border-radius: 3px;
   }
 
@@ -320,28 +402,36 @@ header {
 
   &__title h4 {
     @include subtitle-family;
-    padding: 10px 0;
+    padding: 20px 15px;
     margin: 0;
     text-align: center;
+    word-break: break-all;
   }
 
   &__text p {
     @include text-family;
-    padding: 0 30px;
+    padding: 0 15px;
     margin: 0;
   }
 
   &__btn {
-    padding: 0 30px;
+    padding: 15px 10px;
   }
 
   &__item:nth-child(odd) &__btn {
     text-align: end;
+    @media (max-width: $breakpoint-sm-max) {
+      text-align: center;
+      margin-top: 10px;
+    }
   }
 
   &__btn button {
     @include button-product;
     color: $color-title__white;
+    @media (max-width: $breakpoint-sm-max) {
+      margin-top: 10px;
+    }
   }
 
   &__btn button:hover {
@@ -363,6 +453,26 @@ header {
     padding: 10px;
     background-color: $bg-color__main;
     color: $color-title__white;
+    @media (max-width: $breakpoint-md-max) {
+      text-align: center;
+    }
+  }
+
+  &-back {
+    display: none;
+    @media (max-width: $breakpoint-md-max) {
+      text-transform: uppercase;
+      background-color: $color-title__white;
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 0 0 10px 0;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    & a {
+      text-decoration: none;
+      color: $bg-color__main;
+    }
   }
 
   &-bl__title h1 {
@@ -373,7 +483,7 @@ header {
 
   &-bl__map {
     margin: 0 auto;
-    width: 800px;
+    max-width: 800px;
     height: 500px;
     border-radius: 5px;
     overflow: hidden;
@@ -409,9 +519,10 @@ header {
     z-index: 10;
     box-shadow: $shadow-main;
     overflow: hidden scroll;
-    min-width: 30%;
+    max-width: 100%;
     max-height: 300px;
     border-radius: 3px;
+    padding: 10px;
   }
 
   .list-price {
@@ -482,7 +593,7 @@ header {
   max-width: 1000px;
   height: 50%;
   padding: 20px;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: $bg-color__main;

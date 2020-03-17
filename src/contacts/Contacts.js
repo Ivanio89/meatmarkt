@@ -1,5 +1,7 @@
 import React from "react";
 import { YMaps, Map } from "react-yandex-maps";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Header from "../header/Header";
 
 const Maps = () => (
   <YMaps>
@@ -20,15 +22,24 @@ class Contacts extends React.Component {
       heading: "Мясная лавка г. Кинешма",
       title: "Контакты",
       communication:
-        "Мы находимся в городе Кинешма Ивановская область ул. 50-летия Комсомола, 18А, Кинешма, Россия"
+        "Мы находимся в городе Кинешма Ивановская область ул. 50-летия Комсомола, 18А, Кинешма, Россия",
+      back: "Назад"
     };
   }
   render() {
-    const { heading, title, communication } = this.state;
+    const { heading, title, communication, back } = this.state;
     return (
       <div className="feedback">
         <div className="feedback-heading">
           <h2>{heading}</h2>
+          <Router>
+            <h3 className="feedback-back">
+              <a href="/">{back}</a>
+            </h3>
+            <Switch>
+              <Route exact path="/" component={"/"} />
+            </Switch>
+          </Router>
         </div>
         <div className="container">
           <div className="feedback-bl">

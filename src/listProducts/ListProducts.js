@@ -16,7 +16,7 @@ const CompartmentProduct = props => {
     return (
       <div className="product-inner__item" key={product.id}>
         <div className="product-inner__img">
-          <img src={product.img} width="350" height="200" alt="img" />
+          <img src={product.img} alt="img" />
         </div>
         <div className="product-inner__flex">
           <div className="product-inner__title">
