@@ -34,9 +34,9 @@ class Menu extends React.Component {
             {this.props.commoditys.map((commodity, index) => {
               return (
                 <li key={index} onClick={() => this.props.select(commodity)}>
-                  {subtitle.map((sub, ind) => {
-                    if (index === ind) {
-                      return <h3 key={sub.id}>{sub.name}</h3>;
+                  {subtitle.map((item, itemIndex) => {
+                    if (index === itemIndex) {
+                      return <h3 key={item.id + itemIndex}>{item.name}</h3>;
                     }
                   })}
                 </li>

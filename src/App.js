@@ -2,7 +2,6 @@ import React from "react";
 import Footer from "./footer/Footer";
 import Nav from "./header/Nav";
 import Commodity from "./products/Commodity";
-import DrawerToggleButton from "./drawerToggleButton/drawerToggleButton";
 
 import "normalize.css";
 import "./style.scss";

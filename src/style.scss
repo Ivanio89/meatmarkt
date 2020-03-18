@@ -7,6 +7,7 @@
 * задается в тех блоках где это *
 *   нужно отцентрировать блок   *
 ********************************/
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -26,8 +27,9 @@ header {
   position: relative;
   max-height: 100vh;
   overflow: hidden;
-  @media (max-width: $breakpoint-md-max) {
+  @media (max-width: $breakpoint-sm) {
     background-color: $bg-color__main;
+    max-height: 680px;
   }
 
   .header-wrap__bg img {
@@ -161,6 +163,9 @@ header {
       border-radius: 25px;
       box-shadow: $shadow-main;
     }
+    @media (max-width: $breakpoint-sm) {
+      margin: 0;
+    }
   }
 
   .header-wrap__list_item:nth-child(2) {
@@ -176,8 +181,12 @@ header {
       margin: 20px 20px;
       padding: 20px;
     }
+    @media (max-width: $breakpoint-sm) {
+      .header-wrap__list_item:nth-child(2) {
+        margin: 20px 0;
+      }
+    }
   }
-
   .header-wrap__list_icon {
     @include menu-icon;
     color: $color-title__white;
@@ -235,6 +244,10 @@ header {
     color: $bg-color__main;
   }
   @media (max-width: $breakpoint-md-max) {
+    display: none;
+  }
+
+  @media (max-height: $breakpoint-height) {
     display: none;
   }
 }
@@ -389,9 +402,11 @@ header {
   }
 
   &__img img {
-    max-width: 100%;
     margin-top: 10px;
     border-radius: 3px;
+    @media (max-width: $breakpoint-sm-max) {
+      max-width: 100%;
+    }
   }
 
   &__flex {
@@ -574,6 +589,7 @@ header {
     padding: 0 50px;
   }
 }
+
 /******************************
 *         commodity           *
 ******************************/

@@ -1,7 +1,6 @@
 import React from "react";
 import { YMaps, Map } from "react-yandex-maps";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Header from "../header/Header";
 
 const Maps = () => (
   <YMaps>

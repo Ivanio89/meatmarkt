@@ -8,7 +8,7 @@ class Commodity extends React.Component {
 
     let prod;
 
-    const pro = arr.map(item => {
+    arr.map(item => {
       return (prod = item.map(elem => {
         return (
           <div key={elem.id} className="block-commodity__wrapper">
