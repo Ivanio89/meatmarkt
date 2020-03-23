@@ -27,9 +27,9 @@ header {
   position: relative;
   max-height: 100vh;
   overflow: hidden;
-  @media (max-width: $breakpoint-sm) {
+  @media (max-width: $breakpoint-md-max) {
     background-color: $bg-color__main;
-    max-height: 680px;
+    max-height: 720px;
   }
 
   .header-wrap__bg img {
@@ -162,9 +162,6 @@ header {
       padding: 20px;
       border-radius: 25px;
       box-shadow: $shadow-main;
-    }
-    @media (max-width: $breakpoint-sm) {
-      margin: 0;
     }
   }
 
